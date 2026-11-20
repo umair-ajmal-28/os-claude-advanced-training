@@ -1,18 +1,21 @@
 /*
   Slide deck styles for We're All Software Developers Now.
-  Visual system follows the Opensend roadmap-review session pages:
-  warm ground, white cards, green-dark bands, one lime accent.
+  Pink and green theme: pink ground and cards, green type,
+  green bands with pink type, one hot-pink accent.
   Self-contained: no web fonts, no external requests.
 */
 :root{
   color-scheme:light;
-  --ground:#fafaf6; --ground-2:#f2efe3; --card:#fffdf8; --card-2:#f2efe3;
-  --ink:#1c1c1c; --ink-2:#55534a; --ink-3:#7d7a6e;
+  --ground:#ffe4ef; --ground-2:#ffd3e4; --card:#fff0f6; --card-2:#ffdcea;
+  --ink:#0b4d33; --ink-2:#1f6b4c; --ink-3:#3d7a60;
   --green:#288364; --green-dark:#025939; --green-light:#059765;
-  --band:#156b4b; --lime:#e5ff80; --lime-dark:#d6f066; --on-green:#f5f7ee;
-  --border:#dcd9cc; --border-soft:#ebe8dc;
+  --band:#156b4b; --lime:#ff8fc0; --lime-dark:#f26aa8; --on-green:#ffe4ef;
+  --border:#f5b8d0; --border-soft:#fbd0e1;
   --shadow:0 1px 2px rgba(28,28,28,.05), 0 8px 28px -18px rgba(2,89,57,.28);
   --radius:14px;
+  /* "Opensend" watermark behind every slide: green on light slides, pink on green slides, 14% opacity */
+  --wm-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='140' viewBox='0 0 260 140'%3E%3Cg font-family='Inter,system-ui,-apple-system,Helvetica,Arial,sans-serif' font-weight='800' font-size='26' fill='%23288364' opacity='.14'%3E%3Ctext x='8' y='52' transform='rotate(-15 8 52)'%3EOpensend%3C/text%3E%3Ctext x='136' y='122' transform='rotate(-15 136 122)'%3EOpensend%3C/text%3E%3C/g%3E%3C/svg%3E");
+  --wm-dark:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='140' viewBox='0 0 260 140'%3E%3Cg font-family='Inter,system-ui,-apple-system,Helvetica,Arial,sans-serif' font-weight='800' font-size='26' fill='%23ffe4ef' opacity='.14'%3E%3Ctext x='8' y='52' transform='rotate(-15 8 52)'%3EOpensend%3C/text%3E%3Ctext x='136' y='122' transform='rotate(-15 136 122)'%3EOpensend%3C/text%3E%3C/g%3E%3C/svg%3E");
   /* one slide unit: 1% of the slide width, whatever the window shape */
   --u:min(1vw, 1.6vh);
   --display:'Darker Grotesque','Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
@@ -53,6 +56,9 @@ code{white-space:nowrap;font-family:var(--mono);font-size:.9em;background:var(--
 .band .ask code{background:var(--card-2);border-color:var(--border-soft);color:var(--ink)}
 .slide.quiet{background:var(--ground-2)}
 .slide.top{justify-content:flex-start}
+/* Opensend watermark on every slide: green text on light slides, pink text on green ones */
+.slide,.slide.quiet{background-image:var(--wm-light);background-size:calc(var(--u)*24) auto;background-repeat:repeat}
+.slide.band,.slide.band.cover{background-image:var(--wm-dark);background-size:calc(var(--u)*24) auto;background-repeat:repeat}
 
 /* ---------- deck mode (deck.js adds .deck-on) ---------- */
 body.deck-on{overflow:hidden;height:100vh}
