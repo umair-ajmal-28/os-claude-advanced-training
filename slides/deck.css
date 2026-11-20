@@ -179,6 +179,9 @@ table.grid{border-collapse:collapse;width:100%;margin-top:1.1em;font-size:.88em;
 .session-list .eyebrow{font-size:.85rem}
 .session-list h2{font-weight:800;font-size:2rem;line-height:1.1;color:var(--green-dark);margin-top:6px}
 .session-list p{margin-top:10px;font-size:1.15rem;line-height:1.5}
+/* the session happening today: highlighted card and a "Today" tag */
+.session-list a.today{border:3px solid var(--green);background:color-mix(in srgb,var(--lime) 22%,var(--card));padding:26px 28px}
+.today-tag{background:var(--lime);color:var(--green-dark);border-radius:99px;padding:.2em .7em;letter-spacing:.08em}
 @media (max-width:640px){
   .session-list{grid-template-columns:1fr}
   .index-head{padding:26px 22px}
